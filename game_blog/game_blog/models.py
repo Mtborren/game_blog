@@ -3,12 +3,22 @@ from datetime import date
 
 class Game(models.Model):
     title = models.CharField(max_length=200)
-    # GENRE_CHOICES = [tuple(['ACTION', 'Action'], ['ACTION_ADVENTURE', 'Action-Adventure'], ['ADVENTURE', 'Adventure'], ['PUZZLE', 'Puzzle'], ['ROLE_PLAYING', 'Role-Playing'], ['SIMULATION', 'Simulation'], ['STRATEGY', 'Strategy'], ['SPORTS', 'Sports'], ['MMO', 'MMO'])]
-    # genre = models.CharField(
-    #     max_length=50,
-    #     choices=GENRE_CHOICES,
-    #     default='Action',
-    # )
+    GENRE_CHOICES = (
+        ('Action','Action'),
+        ('Action-Adventure', 'Action-Adventure'), 
+        ('Adventure', 'Adventure'),
+        ('Puzzle', 'Puzzle'),
+        ('Role-Playing','Role-Playing'),
+        ('Simulation', 'Simulation'), 
+        ('Strategy', 'Strategy'), 
+        ('Sports', 'Sports'),
+        ('MMO', 'MMO'),
+        )
+    genre = models.CharField(
+        max_length=50,
+        choices=GENRE_CHOICES,
+        default='Action',
+    )
     RELEASE_YEAR_CHOICES = [tuple([x,x]) for x in range(date.today().year, 2000, -1)]
     release_year = models.CharField(
         max_length=4,
