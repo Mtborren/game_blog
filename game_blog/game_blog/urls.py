@@ -20,8 +20,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('games/', views.game_list),
-    path('games/<int:id>/', views.game_detail)
+    path('games/', views.game_list.as_view()),
+    path('games/<int:id>/', views.game_detail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
